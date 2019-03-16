@@ -2,26 +2,28 @@ package com.kruzer.rma.Model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
 @Entity
-public class RMA {
+//@Table(name = "rma")
+public class Rma {
     @Id
-    @GeneratedValue
-    int id;
-    List<RmaItem> rmaItems;
-    int idClient;
-    LocalDateTime registerDate;
-    LocalDateTime updateDate;
-    String Status;
-    int Invoice;
-    int SO;
-    String trackingNumber;
-    Boolean isDelete;
+    @GeneratedValue(strategy= GenerationType.AUTO)
+        int id;
+    @OneToMany(mappedBy = "rma")
+        List<RmaItem> rmaItems;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "client_id", referencedColumnName = "id")
+        Client client;
+        LocalDateTime registerDate;
+        LocalDateTime updateDate;
+        String Status;
+        int Invoice;
+        int SO;
+        String trackingNumber;
+        Boolean isDelete;
 
 }
