@@ -13,7 +13,7 @@ public class Rma {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
         int id;
-    @OneToMany(mappedBy = "rma")
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "rma")
         List<RmaItem> rmaItems;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "client_id", referencedColumnName = "id")

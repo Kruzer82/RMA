@@ -14,6 +14,7 @@ public class RmaItem {
         String manufacture;
         String model;
         String serialNumber;
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne()
+    @JoinColumn(name = "rma_id")
     Rma rma;
 }
