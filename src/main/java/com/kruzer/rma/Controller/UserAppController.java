@@ -41,6 +41,30 @@ public class UserAppController {
         userAppServices.registerUser(users);
         return "registered";
     }
+
+
+
+    // obsługa żądzania przekierowania na stronę formularza
+    @GetMapping("/login")
+    public String login(Model model){
+        Users users = new Users();
+        // dodajemy atrybut dla obiektu klasy Model ("nazwa stosowanana w html", nazwa bjektu Java)
+        model.addAttribute("users", users);
+        return "login";  // przekierowanie na widok formularza rejestracji (html)
+    }
+    // obsługa żądzania przekazania obiektu z formularz metodą post
+    @PostMapping("/login")
+    public String login(@ModelAttribute @Valid Users users, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            return "login";
+        }
+        // zapis do DB przez serwis użytkownika
+        if(userAppServices.checkUserLogin(users)){
+            return "logined";
+        }
+
+        return "login";
+    }
 }
 
 

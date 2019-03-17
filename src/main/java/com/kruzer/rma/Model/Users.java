@@ -3,6 +3,7 @@ package com.kruzer.rma.Model;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Data
@@ -13,7 +14,7 @@ public class Users {
         int id;
         String login;
         String password;
-        @NotNull
+        @NotEmpty(message = "*Please provide an email")
         String name;
         String initials;
         Boolean isSeller;
