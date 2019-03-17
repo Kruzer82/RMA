@@ -16,10 +16,10 @@ public class Client {
         String person;
         String phoneNumber;
         String eMail;
-        @OneToOne(mappedBy = "client")
-        Rma rma;
+//    @OneToOne(mappedBy = "client")
+//        Rma rma;
     @OneToOne(fetch = FetchType.EAGER)
-    Rma rma_c;
+        Rma rma_c;
     @OneToOne(fetch = FetchType.EAGER)
         UserApp userApp;
 }

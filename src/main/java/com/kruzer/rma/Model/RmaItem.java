@@ -10,9 +10,15 @@ public class RmaItem {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
         int id;
-        String type;
-        String manufacture;
-        String model;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "type_id", referencedColumnName = "id")
+        Type type;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "manufacture_id", referencedColumnName = "id")
+        Manufacture manufacture;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "model_id", referencedColumnName = "id")
+        Model model;
         String serialNumber;
     @ManyToOne()
     @JoinColumn(name = "rma_id")
