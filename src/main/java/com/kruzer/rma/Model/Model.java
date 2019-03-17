@@ -12,6 +12,6 @@ public class Model {
     @GeneratedValue
         int id;
         String model;
-    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL,mappedBy = "type")
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL,mappedBy = "model")
     List<RmaItem> rmaItems;
 }

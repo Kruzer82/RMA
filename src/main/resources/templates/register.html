@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Good Thymes Virtual Grocery</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
+</head>
+
+<body>
+
+
+<form th:align="center" th:action="@{/register}" th:object="${users}" th:method="post">
+    <input class="form-control" th:type="text" th:field="*{name}" th:placeholder="imię">
+    <span th:errors="*{name}">error</span>
+    <br>
+    <input class="btn btn-primary" type="submit" value="zarejestuj">
+</form>
+
+</body>
+
+</html>

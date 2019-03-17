@@ -7,7 +7,6 @@ import javax.persistence.*;
 
 @Data
 @Entity
-//@Table(name = "client")
 public class Client {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -21,5 +20,5 @@ public class Client {
     @OneToOne(fetch = FetchType.EAGER)
         Rma rma_c;
     @OneToOne(fetch = FetchType.EAGER)
-        UserApp userApp;
+    Users users;
 }

@@ -8,7 +8,6 @@ import java.util.List;
 
 @Data
 @Entity
-
 public class Type {
     @Id
     @GeneratedValue
